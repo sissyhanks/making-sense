@@ -13,9 +13,7 @@ const totals = [];
 // returns 20% (number times .2) if number is greater than or equal to 50 and number is less than or equal to 300
 // returns 15% (number times .15) if number is less than  50 or number is greater than 300
 
-const calcTip = function(number) {
-  return (number >= 50 && number <= 300 ? number * .2 : number * .15);
-}
+const calcTip = number => number >= 50 && number <= 300 ? number * .2 : number * .15;
 
 
 
