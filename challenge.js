@@ -38,3 +38,14 @@ console.log(totals);
 
 //for loop declares total variable at value 0, adds all number values from an array to the total value, and then divides the total value by the number of number values in the array
 
+
+
+for (let i = 0; i < q.length; i++) {
+  let total = 0;
+  let average;
+  total = q[i] + total;
+
+  average = total / q.length;
+
+  return 
+}
