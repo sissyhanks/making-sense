@@ -36,16 +36,17 @@ for (let i = 0; i < bills.length; i++) {
 console.log(tips);
 console.log(totals);
 
-//function 'calcAverage' takes in array 'arr' and runs for loop that declares 'total' variable at value 0, adds all number values from 'arr' to the 'total' value, and then divides the 'total' value by the number of number values in 'arr'
+//function 'calcAverage' takes in array 'arr', declares 'total' variable at value 0 and sets up average variable
+// runs for loop that adds all number values from 'arr' to the 'total' value, 
+// when loop is finished 'total' value is divided by the number of number values in 'arr'
 
-
-
-for (let i = 0; i < q.length; i++) {
+const calcAverage = function(arr) {
+  
+  for (let i = 0; i < q.length; i++) {
   let total = 0;
   let average;
+
   total = q[i] + total;
-
-  average = total / q.length;
-
-  return 
 }
+}
+
