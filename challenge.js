@@ -9,13 +9,18 @@ const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 const tips = [];
 const totals = [];
 
-//calcTip function takes in a number and returns a percentage of that number
+//calcTip function takes in a number and holds a percentage of that number in a variable named percent
 // returns 20% (number times .2) if number is greater than or equal to 50 and number is less than or equal to 300
 // returns 15% (number times .15) if number is less than  50 or number is greater than 300
+// also calculates total bill by adding percentage to number and holds bill total in variable named total
 
-const calcTip = number => number >= 50 && number <= 300 ? number * .2 : number * .15;
+const calcTip = function(number) {
+  let percent = (number >= 50 && number <= 300 ? number * .2 : number * .15);
+  let total = percent + number;
+  console.log(percent, total);
+}
 
 
 
 
-console.log(calcTip(200));
+calcTip(1000);
