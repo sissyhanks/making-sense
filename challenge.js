@@ -52,8 +52,6 @@ const calcAverage = function(arr) {
 
   average = total / arr.length;
 
-  console.log(total);
-  console.log(arr.length)
   console.log(average);
 }
 
@@ -61,3 +59,6 @@ const calcAverage = function(arr) {
 const six = [6, 4, 8];
 
 calcAverage(six);
+calcAverage(bills);
+calcAverage(tips);
+calcAverage(totals);
