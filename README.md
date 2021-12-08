@@ -1,1 +1,1 @@
-# making-sense
+# JavaScrip Fundamentals
