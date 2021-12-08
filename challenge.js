@@ -29,6 +29,9 @@ const calcTip = function(number) {
 // for loop iterates over the numbers in bills array and runs each through the calcTip function
 // loop starts at the value at the first position of the array [0] and runs function on the value at each position until it has run the length of the array 
 
+for (let i = 0; i < bills.length; i++) {
+  calcTip(bills[i]);
+}
 
 console.log(tips);
 console.log(totals);
