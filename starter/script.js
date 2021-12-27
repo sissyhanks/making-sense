@@ -37,8 +37,8 @@ const tempAmp = function (temps) {
       min = temps[i];
     }
   }
-  console.log(max, min);
-
+  const amp = (max - min);
+  console.log(amp);
 }
 
 tempAmp(temps);
