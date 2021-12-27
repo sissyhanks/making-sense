@@ -1,3 +1,7 @@
+//code review: 
+//you can put many operations inside of one if statement
+//create a var and set it equal to the function call and that which is returned will be held in the variable and han be accessed through the variable.
+
 // Remember, we're gonna use strict mode in all scripts now!
 'use strict';
 
@@ -21,24 +25,20 @@ console.log(temps);
 const tempAmp = function (temps) {
   // value of max temp set to first temp in temps array
   let max = temps[0];
-  // starting at the second item in temps array, loop through logic through to the end of array
+  let min = temps[0];
+  // loop through logic through to the end of array
   for (let i = 0; i < temps.length; i++) {
-    //compare number in array to number held in max, if array item greater update that number to value held in max
+    //compare number in array to number held in max / min, if array item greater / lower update that number to value held in max /min
     if (temps[i] > max) {
       max = temps[i];
     }
-  }
-    // value of min temp set to first temp in temps array
-  let min = temps[0];
-  // starting at the second item in temps array, loop through logic through to the end of array
-  for (let i = 0; i < temps.length; i++) {
-    //compare number in array to number held in max, if array item less, update that number to value held in max
     if (temps[i] < min) {
       min = temps[i];
     }
   }
-  const amp = (max - min);
-  console.log(amp);
+  return max - min;
 }
 
-tempAmp(temps);
+const amp = tempAmp(temps);
+
+console.log(amp);
