@@ -11,3 +11,5 @@ In addition to sharpening my JavaScript skills, I am approaching this course wit
 ## Sections
 
 [JavaScript Fundamentals](https://github.com/sissyhanks/making-sense/tree/JavaScripFundamentals)
+
+[Developer Skills](https://github.com/sissyhanks/making-sense/tree/DeveloperSkills)
