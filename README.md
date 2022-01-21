@@ -15,3 +15,5 @@ The challenge for this section is to print a string that states forecasted daily
 we are supplied with an array of numbers that are the temperature predictions for each of the coming days in sequential order. the length of the array is unknown and can vary.
 
 the first thing i did was to create a function skeleton that takes in an array as its only argument.
+
+next, i wrote a for loop to pull out each temperature in the array (no matter how many items are in the array) and calculated the day a temperature is forecasted for by adding one to its array index number.

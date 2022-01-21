@@ -55,8 +55,18 @@ console.log(`the amplitude from problem one is ${amp}`);
 // TEST DATA 1: [17, 21, 23]
 // TEST DATA 2: [12, 5, -5, 0, 4]
 
-const arr = [];
+const arr = [17, 21, 23];
 
-const printForecast = function (arr){
+const printForecast = function (arr) {
+  let temp;
+  let day;
 
+  for (let i = 0; i < arr.length; i++) {
+    temp = arr[i];
+    day = i + 1;
+    console.log(temp, day);
+  }
+  
 }
+
+printForecast(arr);
