@@ -55,27 +55,25 @@ console.log(`the amplitude from problem one is ${amp}`);
 // TEST DATA 1: [17, 21, 23]
 // TEST DATA 2: [12, 5, -5, 0, 4]
 
-const arr = [17, 21, 23];
+const arr = [12, 5, -5, 0, 4];
 
 const printForecast = function (arr) {
-  
-  let messageArr = [];
-  let message = "... ";
+  //instead of pushing small chunks of strings to an array and concatenating those i can add the string generated in the template literal directly to the end of the forecast strung & update the value each iteration.
+  // let messageArr = [];
+  let forecast = "... ";
 
   for (let i = 0; i < arr.length; i++) {
-    let temp;
-    let day;
-    let forecast;
-
-    temp = arr[i];
-    day = i + 1;
-    forecast = `${temp}ºC in ${day} days ... `
-    messageArr.push(forecast);
+    
+    //instead of binding values to variable i can insert the array items them into the template literal
+    // temp = arr[i];
+    // day = i + 1;
+    forecast = forecast += `${arr[i]}ºC in ${i + 1} days ... `
+    // messageArr.push(forecast);
   }
-  for (let i = 0; i < messageArr.length; i++){
-    message = message += messageArr[i];
-  }
-  console.log(message);
+  // for (let i = 0; i < messageArr.length; i++){
+  //   message = message += messageArr[i];
+  // }
+  console.log(forecast);
 }
 
 printForecast(arr);
