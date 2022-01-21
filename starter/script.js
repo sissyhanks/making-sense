@@ -58,15 +58,20 @@ console.log(`the amplitude from problem one is ${amp}`);
 const arr = [17, 21, 23];
 
 const printForecast = function (arr) {
-  let temp;
-  let day;
+  
+  let messageArr = [];
 
   for (let i = 0; i < arr.length; i++) {
+    let temp;
+    let day;
+    let forecast;
+
     temp = arr[i];
     day = i + 1;
-    console.log(temp, day);
+    forecast = `${temp}ºC in ${day} days ...`
+    messageArr.push(forecast);
   }
-  
+  console.log(messageArr);
 }
 
 printForecast(arr);

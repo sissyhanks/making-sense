@@ -17,3 +17,5 @@ we are supplied with an array of numbers that are the temperature predictions fo
 the first thing i did was to create a function skeleton that takes in an array as its only argument.
 
 next, i wrote a for loop to pull out each temperature in the array (no matter how many items are in the array) and calculated the day a temperature is forecasted for by adding one to its array index number.
+
+I created variables for temp and day within the for loop as well as a forecast variable that creates a string using a template literal that takes in the temp and day values for each iteration of the loop. before the for loop i created the variable messageArr that is an empty array to which the forecast is pushed to at the end of each iteration.
