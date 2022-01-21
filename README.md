@@ -19,3 +19,5 @@ the first thing i did was to create a function skeleton that takes in an array a
 next, i wrote a for loop to pull out each temperature in the array (no matter how many items are in the array) and calculated the day a temperature is forecasted for by adding one to its array index number.
 
 I created variables for temp and day within the for loop as well as a forecast variable that creates a string using a template literal that takes in the temp and day values for each iteration of the loop. before the for loop i created the variable messageArr that is an empty array to which the forecast is pushed to at the end of each iteration.
+
+to create a string of all of the forecast data i created a variable maned message outside of the for loop that contained the a string that would precede the reporting of the daily forecasts. i then created a second for loop that iterates over the array of forecast messages and used += to concatenate each day's forecast to the leading string and update the value of the message variable so that each day's forecast info from the array of forecasts trailed after each other in the message string.

@@ -60,6 +60,7 @@ const arr = [17, 21, 23];
 const printForecast = function (arr) {
   
   let messageArr = [];
+  let message = "... ";
 
   for (let i = 0; i < arr.length; i++) {
     let temp;
@@ -68,10 +69,13 @@ const printForecast = function (arr) {
 
     temp = arr[i];
     day = i + 1;
-    forecast = `${temp}ºC in ${day} days ...`
+    forecast = `${temp}ºC in ${day} days ... `
     messageArr.push(forecast);
   }
-  console.log(messageArr);
+  for (let i = 0; i < messageArr.length; i++){
+    message = message += messageArr[i];
+  }
+  console.log(message);
 }
 
 printForecast(arr);
