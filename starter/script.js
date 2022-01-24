@@ -19,6 +19,11 @@ document.querySelector('.number').textContent = secretNumber;
 
 let score = 20;
 
+function newScore() {
+  score--;
+  document.querySelector('.score').textContent = score;
+}
+
 //event listeners need type of event and function to tell what to do 'event handler' is expected and the function value gets passed in >> the function passed in is only called on teh event happening
 
 //so in the function passed into the event listener create a constant that holds the value entered in element with class of guess >> value will return as string so convert to number for later comparison
@@ -34,12 +39,10 @@ document.querySelector('.check').addEventListener('click', function () {
       '.message'
     ).textContent = `Yes! The secret number is ${secretNumber}. You win!`;
   } else if (guess > secretNumber) {
-    score--;
-    document.querySelector('.score').textContent = score;
-    document.querySelector('.message').textContent = `too high. guess again`;
+    newScore();
+    document.querySelector('.message').textContent = `Too high. Guess again.`;
   } else if (guess < secretNumber) {
-    score--;
-    document.querySelector('.score').textContent = score;
+    newScore();
     document.querySelector('.message').textContent = `Too Low. Guess again.`;
   }
 });
