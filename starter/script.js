@@ -14,8 +14,8 @@
 
 // console.log(document.querySelector('.guess').value);
 
-const number = Math.trunc(Math.random() * 20) + 1;
-document.querySelector('.number').textContent = number;
+const secretNumber = Math.trunc(Math.random() * 20) + 1;
+document.querySelector('.number').textContent = secretNumber;
 
 //event listeners need type of event and function to tell what to do 'event handler' is expected and the function value gets passed in >> the function passed in is only called on teh event happening
 
@@ -27,5 +27,13 @@ document.querySelector('.check').addEventListener('click', function () {
   if (!guess || guess > 20) {
     document.querySelector('.message').textContent =
       'Please enter a number between 1 and 20!';
+  } else if (guess === secretNumber) {
+    document.querySelector(
+      '.message'
+    ).textContent = `Yes! The secret number is ${secretNumber}. You win!`;
+  } else if (guess > secretNumber) {
+    document.querySelector('.message').textContent = `too high. guess again`;
+  } else if (guess < secretNumber) {
+    document.querySelector('.message').textContent = `Too Low. Guess again.`;
   }
 });
