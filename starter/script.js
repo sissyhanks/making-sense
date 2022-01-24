@@ -14,9 +14,12 @@
 
 // console.log(document.querySelector('.guess').value);
 
+const number = Math.trunc(Math.random() * 20) + 1;
+document.querySelector('.number').textContent = number;
+
 //event listeners need type of event and function to tell what to do 'event handler' is expected and the function value gets passed in >> the function passed in is only called on teh event happening
 
-//so in the function passed into the event listener create a constant that holds the value entered in element with class of guess >> value will return as striung so convert to number for later comparioson
+//so in the function passed into the event listener create a constant that holds the value entered in element with class of guess >> value will return as string so convert to number for later comparison
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
 
