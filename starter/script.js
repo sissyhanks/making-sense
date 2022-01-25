@@ -7,21 +7,42 @@ let highScore = 0;
 // create secret number to be guessed
 let secretNumber;
 
-// function that will reduce score count and update .score display with score total
 function makeSecret() {
   secretNumber = Math.trunc(Math.random() * 20) + 1;
 }
 
+//functions for reused query selectors
+function displayMessage(message) {
+  document.querySelector('.message').textContent = message;
+}
+
+function setBodyBackground(string) {
+  document.querySelector('body').style.backgroundColor = string;
+}
+
+function secretWidth(string) {
+  document.querySelector('.number').style.width = string;
+}
+
+function secretMessage(message) {
+  document.querySelector('.number').textContent = message;
+}
+
+function scoreMessage(message) {
+  document.querySelector('.score').textContent = message;
+}
+
+// function that will reduce score count and update .score display with score total
 function newScore() {
   if (score > 0) {
     score--;
-    document.querySelector('.score').textContent = score;
+    scoreMessage(message);
   }
 }
 
 // function that will update .message with loss notification; to be called if contestant uses last guess and guesses wrong
 function loss() {
-  document.querySelector('.message').textContent = `you are a loser. you lose`;
+  displayMessage(`you are a loser. you lose`);
 }
 
 //event listeners need type of event and function to tell what to do 'event handler' is expected and the function value gets passed in >> the function passed in is only called on teh event happening
@@ -32,19 +53,16 @@ document.querySelector('.check').addEventListener('click', function () {
 
   if (!guess || guess > 20) {
     //error handling if no guess
-    document.querySelector('.message').textContent =
-      'Please enter a number between 1 and 20!';
+    displayMessage('Please enter a number between 1 and 20!');
   } else if (guess === secretNumber) {
     //winning guess
     // change body background to green
     // display secretNumber in and widen .number box
     // send winning message to .textContent
-    document.querySelector(
-      '.message'
-    ).textContent = `Yes! The secret number is ${secretNumber}. You win!`;
-    document.querySelector('body').style.backgroundColor = '#60b347';
-    document.querySelector('.number').style.width = '30rem';
-    document.querySelector('.number').textContent = secretNumber;
+    displayMessage(`Yes! The secret number is ${secretNumber}. You win!`);
+    setBodyBackground('#60b347');
+    secretWidth('30rem');
+    secretMessage(secretNumber);
     if (highScore < score) {
       highScore = score;
     }
@@ -56,10 +74,11 @@ document.querySelector('.check').addEventListener('click', function () {
     //run loss if score is at zero
     newScore();
     if (score > 0) {
-      document.querySelector('.message').textContent =
+      displayMessage(
         guess > secretNumber
           ? `Too high. Guess again.`
-          : `Too Low. Guess again.`;
+          : `Too Low. Guess again.`
+      );
     } else {
       loss();
     }
@@ -75,11 +94,11 @@ document.querySelector('.again').addEventListener('click', function () {
   makeSecret();
   score = 20;
   //reset initial body, message number and score values
-  document.querySelector('.message').textContent = 'Start guessing...';
-  document.querySelector('body').style.backgroundColor = '#222';
-  document.querySelector('.number').style.width = '15rem';
-  document.querySelector('.number').textContent = '?';
-  document.querySelector('.score').textContent = '20';
+  displayMessage('Start guessing...');
+  setBodyBackground('#222');
+  secretWidth('15rem');
+  secretMessage('?');
+  scoreMessage('20');
   document.querySelector('.guess').value = ' ';
 });
 
