@@ -49,19 +49,17 @@ document.querySelector('.check').addEventListener('click', function () {
       highScore = score;
     }
     document.querySelector('.highscore').textContent = highScore;
-  } else if (guess > secretNumber) {
-    //too high
+  } else if (guess !== secretNumber) {
+    //not winning guess
+    // calculate score
+    // ternary operator to set message string if guess too high or low
+    //run loss if score is at zero
     newScore();
     if (score > 0) {
-      document.querySelector('.message').textContent = `Too high. Guess again.`;
-    } else {
-      loss();
-    }
-  } else if (guess < secretNumber) {
-    //too low
-    newScore();
-    if (score > 0) {
-      document.querySelector('.message').textContent = `Too Low. Guess again.`;
+      document.querySelector('.message').textContent =
+        guess > secretNumber
+          ? `Too high. Guess again.`
+          : `Too Low. Guess again.`;
     } else {
       loss();
     }
