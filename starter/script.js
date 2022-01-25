@@ -2,9 +2,15 @@
 
 //set opening score value
 let score = 20;
+let highScore = 0;
 
 // create secret number to be guessed
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber;
+
+// function that will reduce score count and update .score display with score total
+function makeSecret() {
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+}
 
 function newScore() {
   if (score > 0) {
@@ -13,6 +19,7 @@ function newScore() {
   }
 }
 
+// function that will update .message with loss notification; to be called if contestant uses last guess and guesses wrong
 function loss() {
   document.querySelector('.message').textContent = `you are a loser. you lose`;
 }
@@ -38,6 +45,10 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
     document.querySelector('.number').textContent = secretNumber;
+    if (highScore < score) {
+      highScore = score;
+    }
+    document.querySelector('.highscore').textContent = highScore;
   } else if (guess > secretNumber) {
     //too high
     newScore();
@@ -56,3 +67,23 @@ document.querySelector('.check').addEventListener('click', function () {
     }
   }
 });
+
+//////////CODING CHALLENGE 1/////////////
+// allow game to be reset
+
+//selecting .again button to add event listener
+document.querySelector('.again').addEventListener('click', function () {
+  //set a new secret number and reset score count
+  makeSecret();
+  score = 20;
+  //reset initial body, message number and score values
+  document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.score').textContent = '20';
+  document.querySelector('.guess').value = ' ';
+});
+
+// call initial secret number function to start game
+makeSecret();
