@@ -28,10 +28,11 @@ closeBtn.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
 
 //no matter where in page action happens event will occur when document is listened to
-//the function is taking in the event object ... info about what is happening... key doiwn will have the key that was keyed
+//the function is taking in the event object ... info about what is happening... key down will have the key that was keyed
 //so draw out the info desired and fire close on Escape down
 document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape') {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    //adding extra special condition to only execute if the modal isn't hidden
     closeModal();
   }
 });
