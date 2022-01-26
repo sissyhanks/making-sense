@@ -22,7 +22,16 @@ console.log(showBtns);
 for (let i = 0; i < showBtns.length; i++)
   showBtns[i].addEventListener('click', openModal);
 
-//when inserting a named function as an argument in click event don't 'call' it with () or it will exicute immediatly
+//when inserting a named function as an argument in click event don't 'call' it with () or it will execute immediately
 closeBtn.addEventListener('click', closeModal);
 
 overlay.addEventListener('click', closeModal);
+
+//no matter where in page action happens event will occur when document is listened to
+//the function is taking in the event object ... info about what is happening... key doiwn will have the key that was keyed
+//so draw out the info desired and fire close on Escape down
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+});
