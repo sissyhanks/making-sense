@@ -11,23 +11,34 @@ const newBtn = document.querySelector('.btn--new');
 const holdBtn = document.querySelector('.btn--hold');
 const currentScoreZero = document.querySelector('#current--0');
 const currentScoreOne = document.querySelector('#current--1');
-const win = document.querySelector('.win');
+const win = document.querySelectorAll('.win');
+const rollScore = document.querySelectorAll('.current-score');
 
 //variables
 // number rolled
 let dice;
-let currentScore = 0;
+let currentScore;
 //context for which player is active
-let activePlayer = 0;
-let playing = true;
-
-scoreElOne.textContent = 0;
-scoreElZero.textContent = 0;
-diceEl.classList.add('hidden');
+let activePlayer;
+let playing;
 
 const scores = [0, 0];
-let score0 = 0;
-let score1 = 0;
+
+function startGame() {
+  for (let i = 0; i < win.length; i++) win[i].classList.add('hidden');
+  for (let i = 0; i < rollScore.length; i++) rollScore[i].textContent = 0;
+  playerZeroEl.classList.add('player--active');
+  playerOneEl.classList.remove('player--active');
+  scoreElOne.textContent = 0;
+  scoreElZero.textContent = 0;
+  diceEl.classList.add('hidden');
+  for (let i = 0; i < scores.length; i++) scores[i] = 0;
+  currentScore = 0;
+  //context for which player is active
+  activePlayer = 0;
+
+  playing = true;
+}
 
 function switchPlayer() {
   currentScore = 0;
@@ -72,16 +83,7 @@ holdBtn.addEventListener('click', function () {
 });
 
 newBtn.addEventListener('click', function () {
-  win.classList.add('hidden');
-  scores[0] = 0;
-  scores[1] = 0;
-  currentScore = 0;
-  //context for which player is active
-  activePlayer = 0;
-  playerZeroEl.classList.add('player--active');
-  playerOneEl.classList.remove('player--active');
-  playing = true;
-  scoreElOne.textContent = 0;
-  scoreElZero.textContent = 0;
-  diceEl.classList.add('hidden');
+  startGame();
 });
+
+startGame();
