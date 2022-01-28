@@ -24,10 +24,18 @@ let currentScore = 0;
 //context for which player is active
 let activePlayer = 0;
 
+const scores = [0, 0];
 let score0 = 0;
 let score1 = 0;
 
-function rollNumber() {}
+function switchPlayer() {
+  currentScore = 0;
+  document.getElementById(`current--${activePlayer}`).textContent =
+    currentScore;
+  activePlayer = activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
+  playerZeroEl.classList.toggle('player--active');
+  playerOneEl.classList.toggle('player--active');
+}
 
 rollBtn.addEventListener('click', function () {
   dice = Math.trunc(Math.random() * 6) + 1;
@@ -38,15 +46,18 @@ rollBtn.addEventListener('click', function () {
     document.getElementById(`current--${activePlayer}`).textContent =
       currentScore;
   } else {
-    currentScore = 0;
-    document.getElementById(`current--${activePlayer}`).textContent =
-      currentScore;
-    activePlayer = activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
-    playerZeroEl.classList.toggle('player--active');
-    playerOneEl.classList.toggle('player--active');
+    switchPlayer();
   }
 });
 
-// holdBtn.addEventListener('click', function () {
-//   score${activePlayer}
-// });
+holdBtn.addEventListener('click', function () {
+  scores[activePlayer] += currentScore;
+  document.getElementById(`score--${activePlayer}`).textContent =
+    scores[activePlayer];
+  console.log(scores);
+  if (scores[activePlayer] >= 100) {
+    document.getElementById(`win--${activePlayer}`).classList.remove('hidden');
+  } else {
+    switchPlayer();
+  }
+});
