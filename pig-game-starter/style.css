@@ -36,6 +36,12 @@ main {
   display: flex;
 }
 
+/* -------------------------- */
+/* CLASSES TO HIDE DICE AT START */
+.hidden {
+  display: none;
+}
+
 .player {
   flex: 50%;
   padding: 9rem;
