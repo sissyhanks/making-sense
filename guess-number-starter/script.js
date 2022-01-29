@@ -36,7 +36,7 @@ function scoreMessage(message) {
 function newScore() {
   if (score > 0) {
     score--;
-    scoreMessage(message);
+    // scoreMessage(message);
   }
 }
 
@@ -79,6 +79,7 @@ document.querySelector('.check').addEventListener('click', function () {
           ? `Too high. Guess again.`
           : `Too Low. Guess again.`
       );
+      scoreMessage(score);
     } else {
       loss();
     }
