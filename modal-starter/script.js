@@ -3,6 +3,7 @@
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const closeBtn = document.querySelector('.close-modal');
+const home = document.querySelector('.back-home');
 //to select all elements of a class name use querySelectorAll
 //the elements can then be looped through like an array using the variable name for the elements selected by class as the 'array' name
 const showBtns = document.querySelectorAll('.show-modal');
@@ -15,6 +16,10 @@ function closeModal() {
 function openModal() {
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
+}
+
+function goHome() {
+  location.href = '../index.html';
 }
 
 console.log(showBtns);
@@ -36,3 +41,6 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+//new nav button added --- script to return to home page on click
+document.addEventListener('click', goHome);
