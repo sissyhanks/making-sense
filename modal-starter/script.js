@@ -43,4 +43,4 @@ document.addEventListener('keydown', function (e) {
 });
 
 //new nav button added --- script to return to home page on click
-document.addEventListener('click', goHome);
+home.addEventListener('click', goHome);

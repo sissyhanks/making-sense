@@ -9,6 +9,7 @@ const diceEl = document.querySelector('.dice');
 const rollBtn = document.querySelector('.btn--roll');
 const newBtn = document.querySelector('.btn--new');
 const holdBtn = document.querySelector('.btn--hold');
+const homeBtn = document.querySelector('.btn--home');
 const currentScoreZero = document.querySelector('#current--0');
 const currentScoreOne = document.querySelector('#current--1');
 const win = document.querySelectorAll('.win');
@@ -49,6 +50,10 @@ function switchPlayer() {
   playerOneEl.classList.toggle('player--active');
 }
 
+function goHome() {
+  location.href = '../index.html';
+}
+
 rollBtn.addEventListener('click', function () {
   if (playing) {
     dice = Math.trunc(Math.random() * 6) + 1;
@@ -85,5 +90,7 @@ holdBtn.addEventListener('click', function () {
 newBtn.addEventListener('click', function () {
   startGame();
 });
+
+homeBtn.addEventListener('click', goHome);
 
 startGame();
