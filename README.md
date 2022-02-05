@@ -14,3 +14,5 @@ In addition to sharpening my JavaScript skills, I am approaching this course wit
 [Developer Skills](https://github.com/sissyhanks/making-sense/tree/DeveloperSkills)
 
 [DOM and Events Fundamentals](https://github.com/sissyhanks/making-sense/tree/DOM-and-Events-Fundamentals)
+
+## How JavaScript Works Behind the Scenes
