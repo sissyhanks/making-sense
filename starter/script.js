@@ -46,6 +46,10 @@ const restaurant = {
       time
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`this pasta is made with ${ing1}, ${ing2}, and ${ing3}`);
+  },
 };
 
 restaurant.orderDelivery({
@@ -119,4 +123,33 @@ const {
   fri: { open: oo, close: cc },
 } = openingHours;
 
-console.log(oo, cc, fri);
+// --- THE SPREAD OPERATOR ___
+const sArr = [7, 8, 9];
+///the ... is the spread operator and in essence picks out sArr[0], sArr[1], sArr[3]
+const sArrNew = [1, 2, ...sArr];
+
+//the following creates a new array just taking all the elements from og array & adding new element
+const newMenu = [...restaurant.mainMenu, 'gnocchi'];
+
+//shallow copy of array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+//Join 2 arrays
+const wholeMenu = [...newMenu, ...restaurant.starterMenu];
+
+//use spread operator on string
+const bernie = 'bernie';
+const letters = [...bernie, '', 's.'];
+
+// const ing = [
+//   prompt("Let's make Pasta! Ingredient 1?"),
+//   prompt('Ingredient 2?'),
+//   prompt('Ingredient 3?'),
+// ];
+
+// restaurant.orderPasta(...ing);
+
+// copying an object... make shallow copies & add items too
+const newRestaurant = { foundedIn: 1998, ...restaurant, owner: 'Bernie' };
+
+console.log(newRestaurant, restaurant);
