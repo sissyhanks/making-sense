@@ -12,6 +12,7 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
+  //-------destructuring arrays returned form a function-------
   //order is a function that takes in the index position of desired items on starterMenu & mainMenu
   //it returns an array
   order: function (starterIndex, mainIndex) {
@@ -32,8 +33,26 @@ const restaurant = {
       close: 24,
     },
   },
-  //destructuring arrays returned form a funciton
+  // passing an object into a function as an argument and function destructuring object
+  //order delivery is a function that takes in an object
+  //the object is immediately destructured by writing the properties of the object that is being passed in in currly braces in the ()
+  // returns the items in the object & uses this to grab info from indexes in the functions' parent object
+  //default values can also be set for the properties witrh equal sifgn
+  orderDelivery({ starterIndex = 0, mainIndex = 2, address, time }) {
+    console.log(
+      this.starterMenu[starterIndex],
+      this.mainMenu[mainIndex],
+      address,
+      time
+    );
+  },
 };
+
+restaurant.orderDelivery({
+  time: '23:30',
+  address: '123 Neat Rd',
+  starterIndex: 0,
+});
 
 //destructuring is unpacking values into separate variables
 const arr = [3, 4, 5];
@@ -71,4 +90,33 @@ const [k, , [l, m]] = nestArr;
 //default values >> if just [p, q, r] r will return undefined, but setting default values will return default value if nothing in array position
 const [p = 1, q = 1, r = 1] = [8, 9];
 
-console.log(p, q, r);
+//  ------- DESTRUCTURING OBJECTS ------
+//use curly braces to destructure objects // use property names you want to grab from object (order does not matter) and set equal to object variable name
+const { name, openingHours, categories } = restaurant;
+
+//to change name of variables list property name, use colon and than write the variable name you want to hold info
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+
+//default values set by using = after the variable name ... in example below because the property menu does not exist empty array will be returned else would receive undefined
+
+const { menu = [], starterMenu: starters = [] } = restaurant;
+
+//mutating variables
+let aa = 111;
+let bb = 999;
+const obj = { aa: 23, bb: 7, cc: 14 };
+//wrap destructuring assignment in parentheses because can't start with curly braces
+({ aa, bb } = obj);
+
+//nested objects
+//balance the nested object name wrapped in curly braces & it's properties you are reaching for wrapped in curly braces WITH name of nested object's parent object --- will not return the nested object... call for names of properties or updates variable names -- can also return object as a whole
+const {
+  fri,
+  fri: { open: oo, close: cc },
+} = openingHours;
+
+console.log(oo, cc, fri);
