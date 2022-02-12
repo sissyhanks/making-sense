@@ -11,6 +11,7 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  // numGuests: 0,
 
   //-------destructuring arrays returned form a function-------
   //order is a function that takes in the index position of desired items on starterMenu & mainMenu
@@ -194,4 +195,36 @@ add(...x);
 
 restaurant.orderPizza('cheese', 'sauce');
 
-// console.log(weekdays);
+//-----SHORT CIRCUITING ____
+//logical operators can use and return any datatype AND they do short circuit evaluation
+//SC if the first value is truthy then it will be returned and the other opperant won't even be evaluated
+
+// empty string 0 and undefined are falsie will be short circuited
+console.log('' || 'Bernie');
+console.log(0 || true);
+//null and undefined are both falsie and will return last value
+console.log(null || undefined);
+//short circuiting is when a value before the end of the list of comparisons is tru & the remaining balances are not evaluated
+
+// guests1 is a variable set to the number of guests in the numGuests property of the restaurant object
+// a ternary operator is used to set the default value to 10 if the property numGuests does not exist the value is
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+
+// guests2 is a variable that will evaluate the restaurant object for a numGuests property and return the value set, if the property does not exist OR if the value of the property is zero it will come back as falsie and the default value of 33 will be returned.
+const guests2 = restaurant.numGuests || 33;
+
+console.log(guests1);
+console.log(guests2);
+console.log('---OR---');
+// with or operator the evaluation short circuses when an operant is falsie does not look at any operants after first falsie
+console.log(3 && 'true');
+//following example stops at & returns undefined
+console.log('house' && true && undefined && 16);
+
+//using if statement to check if a certain property or value exists
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('cheese', 'eggs');
+}
+// using && short circuiting to check
+//if the first property exists the code in the second will be evaluated and executed.
+restaurant.orderPizza && restaurant.orderPizza('sauce', 'mushrooms');
