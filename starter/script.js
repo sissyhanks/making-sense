@@ -50,6 +50,11 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`this pasta is made with ${ing1}, ${ing2}, and ${ing3}`);
   },
+
+  // orderPizza if a function that takes in a list of strings. it returns the first string as a variable named mainIng and uses the spread operator to return the remaining strings in an array named otherIng
+  orderPizza: function (mainIng, ...otherIng) {
+    console.log(mainIng, otherIng);
+  },
 };
 
 restaurant.orderDelivery({
@@ -124,6 +129,8 @@ const {
 } = openingHours;
 
 // --- THE SPREAD OPERATOR ___
+// used on the right hand side of the assignment operator
+// use to build arrays or pass multiple values into a function ny expanding array into individual elements
 const sArr = [7, 8, 9];
 ///the ... is the spread operator and in essence picks out sArr[0], sArr[1], sArr[3]
 const sArrNew = [1, 2, ...sArr];
@@ -152,4 +159,39 @@ const letters = [...bernie, '', 's.'];
 // copying an object... make shallow copies & add items too
 const newRestaurant = { foundedIn: 1998, ...restaurant, owner: 'Bernie' };
 
-console.log(newRestaurant, restaurant);
+// --- REST PATTErNS AND PARAMETERS __
+// used on the left hand side of assignment operator with destructuring
+// use ... to collect multiple elements and condense them into an array
+
+//the following assigns first two elements to aaa & bbb and puts the REST into a new array called others
+const [aaa, bbb, ...others] = [1, 2, 3, 4, 5];
+
+// one rest operater can be used in any destructuring assignment & must be at the end of assignments
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+const { sat, ...weekdays } = restaurant.openingHours;
+
+//rest parameters
+
+// add is a function that takes in a list of numbers and uses the rest operator to condense them into an array named numbers. the varable total is declared with the value zero within the fuinction and the numbers array is looped over, the value at each position added to total and once the end of the array is reached the final value of total is logged to the console
+
+const add = function (...numbers) {
+  let total = 0;
+  for (let i = 0; i < numbers.length; i++) total += numbers[i];
+  console.log(total);
+};
+
+// add(5, 6, 7);
+// add(1, 2, 3, 4, 5);
+// add(2, 3, 4, 5, 6, 7, 8, 9);
+
+// to put the values from an array into a function's parameter spread the array in the function call parameter... and in this example the units will then get repacked into an array
+const x = [4, 5, 6];
+add(...x);
+
+restaurant.orderPizza('cheese', 'sauce');
+
+// console.log(weekdays);
