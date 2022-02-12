@@ -11,7 +11,7 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  // numGuests: 0,
+  numGuests: 0,
 
   //-------destructuring arrays returned form a function-------
   //order is a function that takes in the index position of desired items on starterMenu & mainMenu
@@ -200,6 +200,7 @@ restaurant.orderPizza('cheese', 'sauce');
 //SC if the first value is truthy then it will be returned and the other opperant won't even be evaluated
 
 // empty string 0 and undefined are falsie will be short circuited
+console.log('---OR ||---');
 console.log('' || 'Bernie');
 console.log(0 || true);
 //null and undefined are both falsie and will return last value
@@ -215,8 +216,9 @@ const guests2 = restaurant.numGuests || 33;
 
 console.log(guests1);
 console.log(guests2);
-console.log('---OR---');
-// with or operator the evaluation short circuses when an operant is falsie does not look at any operants after first falsie
+
+// with and operator the evaluation short circuses when an operant is falsie does not look at any operants after first falsie
+console.log('---AND &&---');
 console.log(3 && 'true');
 //following example stops at & returns undefined
 console.log('house' && true && undefined && 16);
@@ -228,3 +230,10 @@ if (restaurant.orderPizza) {
 // using && short circuiting to check
 //if the first property exists the code in the second will be evaluated and executed.
 restaurant.orderPizza && restaurant.orderPizza('sauce', 'mushrooms');
+
+//nullish coalescing operator
+console.log('---nullish ??---');
+// nullish values are null and undefined ... zero and false are falsie but not nullish
+//if the restaurant property numGuests is zero the nullish operator will return zero instead of the default value when the nullish operator is used
+const guestsCorrect = restaurant.numGuests ?? 10;
+console.log(guestsCorrect);
