@@ -237,3 +237,39 @@ console.log('---nullish ??---');
 //if the restaurant property numGuests is zero the nullish operator will return zero instead of the default value when the nullish operator is used
 const guestsCorrect = restaurant.numGuests ?? 10;
 console.log(guestsCorrect);
+
+//Logical assignment operators
+
+const rest1 = {
+  name: "Bernie's",
+  // numGuests: 20,
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: "Bernie's Two",
+  owner: 'Bernie',
+};
+
+// the or assignment operator assigns value to variable if it is currently falsie.
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// the logical nullish assignment operator will assign value to variable if variable only if it  is nullish
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+//AND assignment operator
+//replace variable value if varable is truthy
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+//variable returns undefined if variable is falsie because evaluation stops when falsie is reached
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+//only does anything if variable value exists
+rest1.owner &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
