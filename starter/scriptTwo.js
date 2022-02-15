@@ -1,3 +1,24 @@
+//---enhanced object literals-----
+//... in order to add the following object as a property of the original restaurant you could go into the restaurant object and ser a property name : to this variable name OR with es6 enhansed object literals you can just enter the variable name of the object with coma after it and an object with that name will be recognized as a property of the object
+const weekdays = ['mon', 'tues', 'weds', 'thurs', 'fri', 'sat', 'sun'];
+//compute property names
+const openHours = {
+  openingHours: {
+    [weekdays[3]]: {
+      open: 12,
+      close: 22,
+    },
+    [weekdays[4]]: {
+      open: 11,
+      close: 23,
+    },
+    [weekdays[5]]: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
+};
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -13,20 +34,6 @@ const restaurant = {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
   // passing an object into a function as an argument and function destructuring object
   //order delivery is a function that takes in an object
   //the object is immediately destructured by writing the properties of the object that is being passed in in curly braces in the ()
@@ -40,10 +47,12 @@ const restaurant = {
       time
     );
   },
-
-  orderPasta: function (ing1, ing2, ing3) {
+  //enhanced object literal method syntax ... can take out ': function' in methods
+  orderPasta(ing1, ing2, ing3) {
     console.log(`this pasta is made with ${ing1}, ${ing2}, and ${ing3}`);
   },
+  // es6 enhanced object literal for adding external property to object
+  openHours,
 
   // orderPizza if a function that takes in a list of strings. it returns the first string as a variable named mainIng and uses the spread operator to return the remaining strings in an array named otherIng
   orderPizza: function (mainIng, ...otherIng) {
@@ -82,4 +91,4 @@ for (const [i, el] of menu.entries()) {
 //rest operator to put new arrays into array
 console.log(...menu.entries());
 
-console.log(menu);
+console.log(restaurant);
