@@ -2,20 +2,19 @@
 //... in order to add the following object as a property of the original restaurant you could go into the restaurant object and ser a property name : to this variable name OR with es6 enhansed object literals you can just enter the variable name of the object with coma after it and an object with that name will be recognized as a property of the object
 const weekdays = ['mon', 'tues', 'weds', 'thurs', 'fri', 'sat', 'sun'];
 //compute property names
+
 const openHours = {
-  openingHours: {
-    [weekdays[3]]: {
-      open: 12,
-      close: 22,
-    },
-    [weekdays[4]]: {
-      open: 11,
-      close: 23,
-    },
-    [weekdays[5]]: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekdays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
   },
 };
 
@@ -91,4 +90,26 @@ for (const [i, el] of menu.entries()) {
 //rest operator to put new arrays into array
 console.log(...menu.entries());
 
-console.log(restaurant);
+//-----OPTIONAL CHAINING--------
+// use to evaluate the presence of nested properties  >> instead of short circuiting or if else
+//?. before the property that might not exist. will return undefined (goes to nullish not falsie)
+
+console.log(restaurant?.openHours?.thurs?.open);
+
+// so!! lets loop over this array and see if resturant is open on any given day
+const days = ['mon', 'tues', 'weds', 'thurs', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  console.log(day);
+  //bracket notation around day variable will bring in the value returned in the loop over days array
+  //the optional chaining notation is used to look for open value if the day in the loop exists in the openHours property of the restaurant object
+  const open = restaurant.openHours[day]?.open ?? 'closed';
+  console.log(`on ${day} we open at ${open}`);
+}
+
+// optional chaining also works on calling methods
+console.log(restaurant.orderFood?.(0, 1) ?? 'method does not exists');
+
+// optional chaining to see if array is empty
+const user = [{ name: 'bernie', nick: 'bern', first: 'b' }];
+console.log(user[0]?.name ?? 'user array empty');
