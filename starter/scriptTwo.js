@@ -113,3 +113,30 @@ console.log(restaurant.orderFood?.(0, 1) ?? 'method does not exists');
 // optional chaining to see if array is empty
 const user = [{ name: 'bernie', nick: 'bern', first: 'b' }];
 console.log(user[0]?.name ?? 'user array empty');
+
+//---LOOPING OBJECTS---
+console.log('---LOOPING OBJECTS---');
+// Object.keys will access property names
+// this creates an array of the property names in teh openHours object
+const properties = Object.keys(openHours);
+//this will return a string = to the each property name in the array of property names created
+for (const day of Object.keys(openHours)) {
+  console.log(day);
+}
+// Object.value will access property values
+const propHours = Object.values(openHours);
+// and loop over the array created above
+for (const time of propHours) {
+  console.log(time);
+}
+
+//to get the key and value pass the name of the object into the entries method after calling it on the Object constructor
+const entries = Object.entries(openHours);
+//the following will return the key value pairs
+for (const x of entries) {
+  console.log(x);
+}
+//destructure in teh for of loop to draw out what you want form the key value return
+for (const [key, { open, close }] of entries) {
+  console.log(`on ${key} we open at ${open} and close at ${close}`);
+}
