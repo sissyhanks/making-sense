@@ -64,3 +64,52 @@ console.log(staffUnique);
 //can find size add & has, but can't deleet dirtectly (will return boolean)
 console.log(new Set('bernadettelouiseschweitzermcknight').size);
 console.log(new Set('bernadettelouiseschweitzermcknight').delete('t'));
+
+//---MAPS---
+console.log('---MAPS---');
+//maps are used to map values to pairs ... and keys can have any types (string, number, objects, other maps) (object needs to have string)
+
+//new Map() creates map
+//.set() fills up Map with what ever is passed in
+const rest = new Map();
+rest.set('keyName', 'key Value');
+console.log(rest);
+//set updates map and returns entire new map
+rest.set(1, 'town name');
+console.log(rest.set(2, 'second town name'));
+//.set can get chained
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('rating', '****')
+  .set('open', 11)
+  .set('closed', 23)
+  .set(true, 'we are open')
+  .set(false, 'we are closed');
+
+console.log(rest);
+
+// use .get() method to read data from a map >> pass in key to get the data >> fyi data type of key matters
+console.log(rest.get('rating'));
+
+//can use get() inside of get() to drill into map values
+const time = 29;
+console.log(rest.get(time >= rest.get('open') && time < rest.get('closed')));
+//because the && logic will return true or false and the key in the map is true & false >> dont need to ternary logic our the open & close message
+
+//check to see if map contains a certain key has method will return a boolean
+console.log(rest.has('closed'));
+// delete will take out a key value pair
+rest.delete('rating');
+console.log(rest);
+//.size shows number of elements and teh clear method clears the map rest.clear()
+console.log(rest.size);
+
+// make an array the key of a map >> create array and set the variable name as the key
+const arrTest = [1, 4];
+rest.set(arrTest, 'test');
+console.log(rest.get(arrTest));
+
+//can add dom elements (which wilbe set as objects) as keys
+rest.set(document.querySelector('h1'), 'Heading');
+
+console.log(rest);
