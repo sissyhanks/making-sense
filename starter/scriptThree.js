@@ -113,3 +113,55 @@ console.log(rest.get(arrTest));
 rest.set(document.querySelector('h1'), 'Heading');
 
 console.log(rest);
+
+//--MAPS ITERATION__
+//create new map from scrach directly in the code by creating an array of arrays within map  & set method to add new items
+const questions = new Map([
+  ['question', 'what is the best pgl'],
+  [1, 'c'],
+  [2, 'java'],
+  [3, 'Js'],
+  ['correct', 3],
+  [true, 'YESSS :)'],
+  [false, 'try again'],
+]);
+
+console.log(questions);
+
+//convert object to map
+const openingHours = {
+  thu: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
+console.log(Object.entries(openingHours));
+// because Object.entries returns an array of arrays you can use it to cerate new map of the returned arrays
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+//iterate over map // deconstruct the item into key and value // can look for data type etc of key and only log values of those that are consistent
+for (const [key, value] of questions) {
+  if (typeof key === 'number') {
+    console.log(value);
+  }
+}
+// const answer = Number(prompt('what is your answer'));
+// console.log(answer);
+
+// console.log(questions.get(answer === 3));
+//but since we want to use the key... ned to set the key that will equal the value that will make true
+// console.log(questions.get(answer === questions.get('correct')));
+
+//convert map to array >> use spread operator on map to create array >> cal also get only keys or values in array
+console.log([...questions]);
+console.log([...questions.keys()]);
