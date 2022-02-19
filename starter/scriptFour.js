@@ -95,3 +95,73 @@ const checkBaggage = function (items) {
 checkBaggage('I have a laptop, some Food and a pocket knife');
 checkBaggage('i have socks and Shoes');
 checkBaggage('Got some chips and a gun for protections');
+
+// ---WORKING WITH STRINGS 3---
+// split method splits sting into multiple parts based on divider string >>divided parts put into a new array
+console.log('a+very+nice+string'.split('+'));
+//split based on space
+console.log('bernie mcknight'.split(' '));
+//use destructuring to make varables of split up string
+const [first, last] = 'Bernie McKnight'.split(' ');
+console.log(first, last);
+//Join method >> joins elements of an array with whatever is passed into the method between each segment
+const newName = ['Mr.', first, last.toUpperCase()].join(' ');
+console.log(newName);
+
+//use case, make first letter of each name capital
+const capitalizeName = function (name) {
+  //split up each element of name
+  const splitName = name.split(' ');
+  //make array to hold new name parts
+  const capName = [];
+  //loop over array of name parts and capatlize forst letter of each
+  for (const i of splitName) {
+    // just doing to upper will only return first letter capitalized... need to + the rest of the name ... use slice at index one to concatenate
+    //push concatenated parts to array
+    capName.push(i[0].toUpperCase() + i.slice(1));
+  }
+  //join array parts with space
+  console.log(capName.join(' '));
+};
+
+// can also use replace to achieve this
+const CapNameReplace = function (name) {
+  const splitName = name.split(' ');
+  const capName = [];
+  for (const i of splitName) {
+    //replace first letter with first letter to upper case
+    capName.push(i.replace(i[0], i[0].toUpperCase()));
+  }
+  console.log(capName.join(' '));
+};
+
+capitalizeName('a little bitch baby');
+capitalizeName('a nother name');
+
+CapNameReplace('i will replace you');
+
+//padding a string ... adding characters to string until desired length
+const message = 'go to gate 3';
+//padding will make string number of charachters requested by adding string to the beginning or end
+console.log(message.padStart(25, '+'));
+console.log(message.padEnd(30, '+'));
+
+// use case mask cc #
+// maskCC is a function that takes in a number // sNumber converts the number to a a string // the string is sliced at -4 (4th character to the end on is returned) pad start is chained to slice, the number of the final string is found by calling .lenght() on sNumber and the start character is used to pad
+const maskCC = function (number) {
+  //can also do this with number + '' (empty string) and the number will convert.
+  const sNumber = number.toString();
+  console.log(sNumber.slice(-4).padStart(sNumber.length, '*'));
+};
+maskCC(1234123456789876);
+
+//repeat method // allows to repeat same string multiple times
+const aMessage = 'Bad weather... all departures delayed! ';
+//call repeat on the string pass in number of time to repeat
+console.log(aMessage.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'✈︎ '.repeat(n)}`);
+};
+planesInLine(7);
+planesInLine(2);
