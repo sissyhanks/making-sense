@@ -187,3 +187,44 @@ book.apply(lufthansa, fData);
 
 // but actually just use the spread operator to spread out the arguments from an array
 book.call(eurowings, ...fData);
+
+//---THE BIND METHOD---
+//bind allows us to set the this key word for a function ... does not call the function rut returns a new function where the this keyword is bound
+//bookEw is a new book functions with this kw bound ot eurowings
+const bookEw = book.bind(eurowings);
+bookEw(678, 'a boy');
+
+// you can bind any argument
+const lh224 = book.bind(lufthansa, 224);
+
+lh224('tom jones');
+
+// bind >> objects & event listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+
+//in event listener this points to element handling event
+// so when passing ijn the function to the event listener use the bind to tell where to point this
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+//Partiualk application meant se can preset paramaters
+const addTax = (rate, value) => value + value * rate;
+
+console.log(addTax(0.1, 200));
+
+//bund another value
+//since the function does not have a this can pass null in first... then the const parameter for the function
+const addVAT = addTax.bind(null, 0.23);
+console.log(addVAT(500));
+//different from setting default because is a whole new function
+
+const taxIt = rate => value => console.log(value + value * rate);
+// taxIt takes in rate and holds it so when aVAT is called on the value that is being taxed it will return VAT added amount
+const aVAT = taxIt(0.23);
+aVAT(1000);
