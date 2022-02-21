@@ -64,3 +64,20 @@ console.log(bernie);
 
 //passing by value && passing by reference
 //JS only passes by value
+
+//---FIRST CLASS AND HIGHER ORDER FUNCTIONS---
+//first class function : functions treated as values
+
+//functions can be variable's in other functions & passed into functions
+
+//functions can be returned from other functions
+
+//functions are objects and objects have methods, so functions have methods that can be called on other functions
+
+//first class functions allow higher order function:
+//functions that receive other functions
+
+//add event listener is a higher order function because it is a functions that takes in a function (what to do on event) as an input --CALL BACK FUNCTION-- is the one passed in, because it is called by the event function
+
+//FIRST CLASS means the functions are values
+//HIGHER ORDER FUNCTIONS are the use of first lass functions in functions
