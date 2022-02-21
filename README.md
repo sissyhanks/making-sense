@@ -3,7 +3,8 @@
 > _When you reach the end of what you should know, you will be at the beginning of what you should sense._
 >
 > ~Kahlil Gibran
-> This repo contains my work on the coding exercises from [Jonas Schmedtmann](https://codingheroes.io/)'s [Complete JavaScript Course](https://www.udemy.com/course/the-complete-javascript-course/).
+
+This repo contains my notes on the coding exercises from [Jonas Schmedtmann](https://codingheroes.io/)'s [Complete JavaScript Course](https://www.udemy.com/course/the-complete-javascript-course/).
 
 In addition to sharpening my JavaScript skills, I am approaching this course with the intention of developing my pseudo coding practice and creating excellent documentation.
 
@@ -15,4 +16,6 @@ In addition to sharpening my JavaScript skills, I am approaching this course wit
 
 [DOM and Events Fundamentals](https://github.com/sissyhanks/making-sense/tree/DOM-and-Events-Fundamentals)
 
-## Data Structures and Modern Operators
+[Data Structures and Modern Operators](https://github.com/sissyhanks/making-sense/tree/Data-Structures-and-Modern-Operators)
+
+### A Closer Look At Functions
