@@ -117,3 +117,30 @@ myArr.forEach(highFive);
 //callback function allow us to create abstractions >> hide detail of code implementation because we don't care about the detail, so we can solve problems at a higher lever
 //like in transformer above, it just wants to transform a string, not what is happening or how it works >> thats what the call back function is for
 //HIGHER ORDER FUNCTION >>> HIGHER LEVEL OF ABSTRACTION
+
+//---FUNCTIONS RETURNING FUNCTIONS---
+
+//greet is a function that returns a function
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+//as an arrow fuinction >> aGreet is a function that takes in a string and within that function is another function that takes in a string and then both strings are logged to the cosole.
+const aGreet = greeting => person => console.log(`${greeting} ${person}`);
+// greeter hey is now the function inside of the greet function >> the greeting being hey
+const greeterHey = greet('hey');
+const greeterHello = greet('hello');
+// when greeter hey is called  the string passed into it is the name that will appear in the string and the greeting of the string is defined by the greeter hey function
+greeterHey('bernie');
+greeterHey('bobb');
+
+greeterHello('bernie');
+
+// once the greet function is called the interior function can get called immediately
+greet('nice to see you')('dork');
+
+// yo returns the function that takes in a string and logs message to console, & holds value based into aGreet to use within , adding value passed into yo when it is called
+const yo = aGreet('yo');
+yo('dog');
