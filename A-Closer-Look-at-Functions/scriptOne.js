@@ -24,3 +24,43 @@ createBooking('LH454');
 createBooking('LH666', 14, 66);
 //if you need to skip a parameter set it to undefined to leave at default
 createBooking('HT789', undefined, 55);
+
+//--PASSING ARGUMENTS INTO FUNCTIONS--
+//---VALUES vs REFERENCES---
+const flight = 'LH123';
+const bernie = {
+  name: 'Bernie McKnight',
+  passport: 123234456,
+};
+
+const checkIn = function (flightNum, passenger) {
+  flightNum = 'LH676';
+  passenger.name = 'Mrs. ' + passenger.name;
+
+  // if (passenger.passport === 123234456) {
+  //   alert('check in');
+  // } else {
+  //   alert('wrong passport');
+  // }
+};
+
+//here the flight variable stays the same... and the bernie object is updated
+//flight number is a copy of the flight variable, not the og string
+console.log(flight);
+//the object reference type is what is passed into function and is pointing the the same bject and will manipulate the thing pointed to.
+console.log(bernie);
+
+//pass a primitive to a function,,, it is like a copy... pass an object to a function alters object
+
+const newPassport = function (person) {
+  person.passport = Math.trunc(Math.random() * 10000000000);
+};
+
+//the function is manipulating the person object and updating the info
+newPassport(bernie);
+//and then messing up the passport check in part of this function
+checkIn(flight, bernie);
+console.log(bernie);
+
+//passing by value && passing by reference
+//JS only passes by value
