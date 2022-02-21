@@ -81,3 +81,39 @@ console.log(bernie);
 
 //FIRST CLASS means the functions are values
 //HIGHER ORDER FUNCTIONS are the use of first lass functions in functions
+
+//---FUNCTIONS ACCEPTING CALLBACK FUNCTIONS---
+
+// oneWord is a function that takes in a string, replaces all spaces with no space and converts to lowercase
+const oneWord = function (string) {
+  return string.replace(/ /g, '').toLowerCase();
+};
+
+// upperFIrstWord is a function that takes in a string, separates it by spaces, destructors split return to grab first word and returns an array that as the first word in all caps and the rest of the items from teh original string joined with spaces between
+const upperFirstWord = function (string) {
+  const [first, ...rest] = string.split(' ');
+  return [first.toUpperCase(), ...rest].join(' ');
+};
+
+//transformer is a HIGHER ORDER function that takes in a string and a function and prints a string that uses the callback function to preform an operation on the passed in string & a string that returns the name property of the functions passed in
+const transformer = function (str, fn) {
+  console.log(`transformed string: ${fn(str)}`);
+  //because functions are objects they have properties ... like name
+  console.log(`transformed by: ${fn.name}`);
+};
+transformer('js is the best', oneWord);
+transformer('js is the best', upperFirstWord);
+
+const highFive = function () {
+  console.log(55555);
+};
+//because even listener takes in a string to signify event and a function the highFive function logs to console when the pae is clicked >> in the add event listener function the callback function is called the event handler & is called when the event occurs
+document.body.addEventListener('click', highFive);
+const myArr = ['mom', 'dad', 'daughter'];
+// for each is also a callback function the function high five is called d& 55555 is logged at each index of the array
+myArr.forEach(highFive);
+
+//callbacks allow code to be small & split up
+//callback function allow us to create abstractions >> hide detail of code implementation because we don't care about the detail, so we can solve problems at a higher lever
+//like in transformer above, it just wants to transform a string, not what is happening or how it works >> thats what the call back function is for
+//HIGHER ORDER FUNCTION >>> HIGHER LEVEL OF ABSTRACTION
