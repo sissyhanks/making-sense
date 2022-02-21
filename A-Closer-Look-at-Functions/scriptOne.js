@@ -144,3 +144,46 @@ greet('nice to see you')('dork');
 // yo returns the function that takes in a string and logs message to console, & holds value based into aGreet to use within , adding value passed into yo when it is called
 const yo = aGreet('yo');
 yo('dog');
+
+//---THE CALL AND APPLY METHODS---
+const lufthansa = {
+  airline: 'Lufthanse',
+  iataCode: 'LH',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight number ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+lufthansa.book(234, 'bernie');
+lufthansa.book(554, 'bill');
+console.log(lufthansa.bookings);
+
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+//use the function from LH object & book becomes a regular function NOT a method ... but `this` now points to undefined
+const book = lufthansa.book;
+
+//this won't work... this is pointing to undefined
+// book(33, 'tom');
+
+//call is a function method
+//with call method the first argument is what we want the this keyword to point to
+book.call(eurowings, 23, 'bill ned');
+//with call ... call is what is being called and the call method calls the book function
+book.call(lufthansa, 666, 'the devil');
+
+//apply method
+//APPLY does not receive a list of arguments, but an array
+const fData = [667, 'a man'];
+book.apply(lufthansa, fData);
+
+// but actually just use the spread operator to spread out the arguments from an array
+book.call(eurowings, ...fData);
