@@ -47,3 +47,43 @@ booker();
 
 console.dir(booker);
 //will show scope and where it came from  >> [[cant ACCESS the info]]... but see it
+
+//--CLOSURES EXAMPLES--
+//when a variable is declared outside of a funciton, but then is used to declare a function inside of a function it will still carry the conext of the place where the function was declared
+let f;
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+g();
+f();
+
+//f becomes a different function after being reassigned by h
+h();
+f();
+console.dir(f);
+
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  // teh function in setTimeout will run 3 seconds (or whatever time is set in the second parameter of set timeout) it is a call back function and has access ot all of the variables from teh home it was created in because of callbacks
+  setTimeout(function () {
+    console.log(`we are now boarding all ${n} passengers`);
+    console.log(`there are three groups each with ${perGroup} passengers`);
+  }, wait * 1000);
+
+  console.log(`will start boarding in ${wait} seconds`);
+};
+//if a variable that the function needs is in the global scope it will only use it if the variable isn't defined in the scope it was created in
+
+boardPassengers(180, 3);
