@@ -18,4 +18,6 @@ In addition to sharpening my JavaScript skills, I am approaching this course wit
 
 [Data Structures and Modern Operators](https://github.com/sissyhanks/making-sense/tree/Data-Structures-and-Modern-Operators)
 
-### A Closer Look At Functions
+[A Closer Look At Functions](https://github.com/sissyhanks/making-sense/tree/A-Closer-Look-at-Functions)
+
+### Working With Arrays
