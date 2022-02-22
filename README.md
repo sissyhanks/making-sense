@@ -20,4 +20,46 @@ In addition to sharpening my JavaScript skills, I am approaching this course wit
 
 [A Closer Look At Functions](https://github.com/sissyhanks/making-sense/tree/A-Closer-Look-at-Functions)
 
-### Working With Arrays
+## Working With Arrays
+
+### Simple Array Methods
+
+### The new at Method
+
+### Looping Arrays: forEach
+
+### forEach With Maps and Sets
+
+### PROJECT: "Bankist" App
+
+### Creating DOM Elements
+
+### Data Transformations: map, filter, reduce
+
+### The map Method
+
+### Computing Usernames
+
+### The filter Method
+
+### The reduce Method
+
+### The Magic of Chaining Methods
+
+### The find Method
+
+### Implementing Login
+
+### Implementing Transfers
+
+### The findIndex Method
+
+### some and every
+
+### flat and flatMap
+
+### Sorting Arrays
+
+### More Ways of Creating and Filling Arrays
+
+### Which Array Method to Use?
