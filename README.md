@@ -22,9 +22,23 @@ In addition to sharpening my JavaScript skills, I am approaching this course wit
 
 ## Working With Arrays
 
+INDEX NOTES
+Array indexes begin at 0 (the first item in an array is indexed zero)
+
 ### Simple Array Methods
 
+- #### SLICE
+
+  Slice is an array method that takes in up to two parameters that represent array item indexes and returns a new array made up of the items including the item at the first index parameter up until (not including) the end parameter.
+
+  The new array is a shallow copy of the specified parameters, slice does not mutate the original array.
+
 ### The new at Method
+
+- The at method works similarly to bracket notation in that it will return an array item based on the index number passed into the method.
+- The at method allows for negative indexing, to count back from the end of an array, the last item indexing at -1
+- The at method allows for method chaining
+- The at method can also be used on strings
 
 ### Looping Arrays: forEach
 

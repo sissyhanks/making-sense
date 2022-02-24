@@ -97,3 +97,15 @@ console.log(letters);
 
 //--JOIN-- will join elements of an array into a string separated with characters specified inside parameter call
 console.log(letters.join(' '));
+
+//-----THE NEW AT METHOD---------
+const arrAt = [23, 11, 64];
+
+// the at method replaces traditional bracket notation for isolating items in an array
+console.log(arrAt[0]);
+console.log(arrAt.at(0));
+
+//allows for the use of negitive indexes, instead of finding for length minus to get at values at the en of an array
+console.log(arrAt.at(-1));
+
+//at method will also allow for method chaining
