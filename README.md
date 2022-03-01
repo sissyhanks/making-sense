@@ -42,6 +42,14 @@ Array indexes begin at 0 (the first item in an array is indexed zero)
 
 ### Looping Arrays: forEach
 
+- for each is a higher order function that exicutes a callback on each itteration of the loop passing the array's current element at each position
+- at each position in the loop for each can pass in
+  - the value held at the position
+  - the index of the position
+  - the entire array
+    any or all can be put in the parameter list, they are accessed in the order listed above
+- for each loops cannot be broken out of and do not accept break or continue statements
+
 ### forEach With Maps and Sets
 
 ### PROJECT: "Bankist" App
