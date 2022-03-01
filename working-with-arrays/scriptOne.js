@@ -72,8 +72,6 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
 /////////////////////////////////////////////////
 
 let arr = ['a', 'b', 'c', 'd', 'e'];
@@ -109,3 +107,37 @@ console.log(arrAt.at(0));
 console.log(arrAt.at(-1));
 
 //at method will also allow for method chaining
+
+//-------FOR EACH LOOP-------
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+//for of loop to log if a transaction is deposit or withdrawal
+// for (const movement of movements) {
+//to gain access to each iteration count of the loop the .entries of movements are called (listing the key value pair of index, array item) which is then destructured into i, movement in the loop variable
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1} deposit $${movement}`);
+  } else {
+    console.log(`Movement ${i + 1} withdrawal $${Math.abs(movement)}`);
+  }
+}
+
+// forEach is a higher order function that requires a call back function
+//loops over array & executes call back function on each iteration... passing in current element of array as argument >> here movement is
+//access the current index in a for each loop
+//a the for each method calls the callback function in each loop and passes in the current element of the array each time the function is called along with index and the entire array we are looping
+//each part can be called in parameter list, the order is item, index, full array
+movements.forEach(function (movement, index, array) {
+  if (movement > 0) {
+    console.log(`forEach ${index + 1} deposit $${movement} of ${array}`);
+  } else {
+    console.log(
+      `forEach ${index + 1} withdrawal $${Math.abs(movement)} of  ${array}`
+    );
+  }
+});
+//the result of for each is the same as for of loop, but works in that the call back function is called at each item of the array
+
+// grabbing index is easier in for of, it is the second parameter to be passed in after value *(and the full array is accessible as the third parameter if desired)
+//when using entries method to access the index in a for of loop the index will be the first variable deconstructed followed fby the value held fin that position
+
+//for each loops can not be broken out of >> do not accept continue and break statements
