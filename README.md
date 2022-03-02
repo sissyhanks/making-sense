@@ -52,6 +52,20 @@ Array indexes begin at 0 (the first item in an array is indexed zero)
 
 ### forEach With Maps and Sets
 
+- When working with a map the callback function the forEach method takes in can receive the parameters relating to the map's
+
+  - value
+  - key
+  - total map
+
+- When working with a set the callback function the forEach method takes in can receive the parameters relating to the set's
+  - value
+  - key
+  - total set
+- because sets have neither keys nor indexes there is no 'KEY', but the call back on for each access three values so value is repeated for key
+
+- UNDERSCORE `_` is used as a variable naming convention when there is a throw away variable ... using it in the second parameter position when defining a the call back function in a forOf method on a set would be a use case example
+
 ### PROJECT: "Bankist" App
 
 ### Creating DOM Elements
