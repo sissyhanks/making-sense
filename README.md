@@ -68,7 +68,39 @@ Array indexes begin at 0 (the first item in an array is indexed zero)
 
 ### PROJECT: "Bankist" App
 
+#### **Problem One: display customer transactions**
+
+_in this app the action fields and account display are present, but invisible as opacity is set to 0_  
+_when a customer logs in the information saved in their account object is used to calculate balance and generate account information divs and all fields are rendered fully opaque_
+
+- remove divs with hardcoded values
+- insert new divs for each transaction in descending order
+- display the amount of each transaction
+- display the number (position in order) of each transaction
+- label the type of transaction
+- style transaction label based on transaction type
+
 ### Creating DOM Elements
+
+- instead of working with global variables, pass in data for a function to use as a parameter
+
+- [insertAdjacentHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) is a method for inserting HTML into the DOM by referencing a dom element  
+  this method accepts two strings:
+  - the first string represents the position, relieve to the dom element it is called on, that the HTML string will be inserted
+  - the second argument is the string of HTML to insert
+
+displayMovements is a function that takes in an array of numbers that represent banking transactions. Deposits are represented as positive numbers and withdrawals are represented with negative numbers
+
+- the HTML that displays transactions is set to the class `movements`
+- the variable `containerMovements` selects all elements classed as `movement`
+- hard coded placeholder data is removed from the code hy setting the inner HTML of `containerMovements` elements to an empty string
+
+- a `forEach` loop is called on each element of the array of transactions passed into the `displayMovements` function
+- within the `forEach` callback function the value is denoted as `mov` and the index is denoted as `i`
+- the `type` variable uses a ternary operator to evaluate weather `mov` is a positive or negative number and is set to the value `deposit` if positive or `withdrawal` if negative
+- `html` is a variable set to a template literal pulled from the hard coded default `movement_rows` elements. Default values are replaces with `mov` and `i` where appropriate the display the transaction amount and number. `type` is inserted as text on the transaction type label as well as within the class tag to match corresponding css styling tag
+
+- the js method `insertAdjacentHTML` is called on `containerMovements` with `afterbegin` positioning for descending order, and `html` passed in as the updated html string to be inserted into the page.
 
 ### Data Transformations: map, filter, reduce
 
