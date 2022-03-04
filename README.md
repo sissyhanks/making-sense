@@ -42,7 +42,7 @@ Array indexes begin at 0 (the first item in an array is indexed zero)
 
 ### Looping Arrays: forEach
 
-- for each is a higher order function that exicutes a callback on each itteration of the loop passing the array's current element at each position
+- for each is a higher order function that executes a callback on each iteration of the loop passing the array's current element at each position
 - at each position in the loop for each can pass in
   - the value held at the position
   - the index of the position
