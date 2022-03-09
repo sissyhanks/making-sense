@@ -104,6 +104,15 @@ displayMovements is a function that takes in an array of numbers that represent 
 
 ### Data Transformations: map, filter, reduce
 
+these methods are used to preform data transformation
+these methods create new arrays, transforming data from other arrays
+
+- the map method is used to loop over array, applies a callback function to each element in the array and pushes the transformed data to a new array. It 'maps' the values of the original array to a new array.
+
+- the filter method is used to filter for elements in the original array that satisfy a given condition and pushes those elements into a new, filtered array
+
+- the reduce method reduces all array elements into one single value; an accumulator variable which gets all element to be counted added to it
+
 ### The map Method
 
 ### Computing Usernames
