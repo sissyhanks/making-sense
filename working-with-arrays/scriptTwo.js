@@ -71,6 +71,48 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
+//movements in euros
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+//if one euro - 1.1 dollar
+const euroToUsd = 1.1;
+
+//to convert movements to dollars , multiply by 1.1
+
+//because the map method returns a new array, save the function to a variable
+
+//the map method takes in a callback function which takes in the current array element in as an argument
+const movementsUsd = movements.map(function (mov) {
+  //return the value we want the new array to have in the current position
+  return mov * euroToUsd;
+});
+
+//in e6
+const movementsUsdArr = movements.map(mov => mov * euroToUsd);
+
+console.log(movements);
+console.log(movementsUsd);
+console.log(movementsUsdArr);
+
+//for of loop does the same thing * declare empty array to push the outcome of each iteration to * for each mov in movement array multiply by euro conversion rate and push to new array
+
+const movUSD = [];
+for (const mov of movements) movUSD.push(mov * euroToUsd);
+
+console.log(movUSD);
+
+//map also gives access to individual item, iteration number and full array ... by naming the function it becomes a new array of transformed information returned by logic ... the map method grabs all of teh items becasue it is what is calling the function inside of it
+
+const movDes = movements.map((mov, i, arr) => {
+  if (mov > 0) {
+    return `map ${i + 1} deposit $${mov}`;
+  } else {
+    return `map ${i + 1} withdrawal $${Math.abs(mov)}`;
+  }
+});
+
+console.log(movDes);
+
+// for each does work in each iteration, map creates no side effects >> it just builds a new array
