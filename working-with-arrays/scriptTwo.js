@@ -88,10 +88,12 @@ const user = 'Steven Thomas Williams';
 //the split creates an array of each element broken up at split parameter
 //because split returns an array map can be called immediately after split
 //to get the first initial of each name have map return the item (character in this case) of each item in the array returned by split
+//the items in the array created by map can then be joined with no spaces in order to create a string of each first initial to create user name
 const userName = user
   .toLowerCase()
   .split(' ')
-  .map(i => i[0]);
+  .map(i => i[0])
+  .join('');
 console.log(userName);
 
 /////////////////////////////////////////////////
