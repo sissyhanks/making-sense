@@ -81,6 +81,13 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+//Computing Usernames
+//user names are an account owner's initials
+const user = 'Steven Thomas Williams';
+//begin by splitting owener names at spaces and sending full name to lowercase
+const userName = user.toLowerCase().split(' ');
+console.log(userName);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
