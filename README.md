@@ -115,6 +115,10 @@ these methods create new arrays, transforming data from other arrays
 
 ### The map Method
 
+- map is a more functional approach than using a for each loop
+
+- declare a variable and set it equal to an instance of the map method and the variable will be set to an array (the new array transformed by the parameters in the function)
+
 ### Computing Usernames
 
 ### The filter Method
