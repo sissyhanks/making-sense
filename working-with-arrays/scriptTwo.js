@@ -84,8 +84,14 @@ displayMovements(account1.movements);
 //Computing Usernames
 //user names are an account owner's initials
 const user = 'Steven Thomas Williams';
-//begin by splitting owener names at spaces and sending full name to lowercase
-const userName = user.toLowerCase().split(' ');
+//begin by splitting owner names at spaces and sending full name to lowercase
+//the split creates an array of each element broken up at split parameter
+//because split returns an array map can be called immediately after split
+//to get the first initial of each name have map return the item (character in this case) of each item in the array returned by split
+const userName = user
+  .toLowerCase()
+  .split(' ')
+  .map(i => i[0]);
 console.log(userName);
 
 /////////////////////////////////////////////////

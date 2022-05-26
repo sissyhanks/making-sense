@@ -119,6 +119,11 @@ these methods create new arrays, transforming data from other arrays
 
 - declare a variable and set it equal to an instance of the map method and the variable will be set to an array (the new array transformed by the parameters in the function)
 
+- the map method gives access to (a, b, c)
+- - a) the value of an item in an array's index
+- - b) the item's index position number
+- - c) the entire array
+
 ### Computing Usernames
 
 ### The filter Method
