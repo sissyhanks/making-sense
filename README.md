@@ -126,6 +126,8 @@ these methods create new arrays, transforming data from other arrays
 
 ### Computing Usernames
 
+createUserName is a function that takes in an array of objects and adds to each a property named username paired with a string created by separating the string value associated with the object's owner property at at the empty strings within the value and joining the first characters of each separated string
+
 ### The filter Method
 
 ### The reduce Method

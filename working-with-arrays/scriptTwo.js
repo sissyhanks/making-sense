@@ -96,6 +96,22 @@ const userName = user
   .join('');
 console.log(userName);
 
+//make user name creation a functional component that transforms user objects to hold a user name property
+//take in an array (the accounts array) (and preforms username logic above to each name in the array)
+//create user name takes in an array of objects and for each object in the array adds a new 'username' property which is set to the first initials from the account  owner property
+const createUserName = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(i => i[0])
+      .join('');
+  });
+};
+
+createUserName(accounts);
+console.log(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
