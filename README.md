@@ -130,6 +130,13 @@ createUserName is a function that takes in an array of objects and adds to each 
 
 ### The filter Method
 
+- the filter method gives access to (a, b, c)
+- - a) the value of an item in an array's index
+- - b) the item's index position number
+- - c) the entire array
+
+the filter method is used on arrays and will return items in teh array the meet the condition the function calls for
+
 ### The reduce Method
 
 ### The Magic of Chaining Methods

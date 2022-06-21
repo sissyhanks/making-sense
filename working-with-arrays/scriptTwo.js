@@ -167,3 +167,27 @@ const movDes = movements.map((mov, i, arr) => {
 console.log(movDes);
 
 // for each does work in each iteration, map creates no side effects >> it just builds a new array
+
+//FILTER
+// the filter method usually only needs to work with the currents array element, though it does gain access to the index and full array as well
+
+const dep = movements.filter(function (mov) {
+  //trying to create an array of deposits >> we wan't only positive numbers, so want to filter out the negative numbers
+
+  // so we return only array items that are greater than zero
+
+  return mov > 0;
+});
+
+console.log(dep);
+
+//filter better than for of because no push to new array AND filter has hte ability to be chained with other methods
+
+// to filter for withdraws bind a constant to a function that chains the filter method to the movements array and returns array items that are less than zero
+// const draw = movements.filter(function (mov) {
+//   return mov < 0;
+// });
+//arrow
+const draw = movements.filter(mov => mov < 0);
+
+console.log(draw);
