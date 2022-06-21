@@ -139,6 +139,18 @@ the filter method is used on arrays and will return items in teh array the meet 
 
 ### The reduce Method
 
+- the reduce gives access to (a, b, c, d)
+- - a) the accumulator
+- - b) the value of an item in an array's index
+- - c) the item's index position number
+- - d) the entire array
+
+reduce boils down all elements in an array to one single value
+
+the accumulator is where the values from the array will be added to
+
+the reduce method takes in a call back function (which iterates though the array adding the value of each item to the accumulator) as well as the start value for the accumulator
+
 ### The Magic of Chaining Methods
 
 ### The find Method

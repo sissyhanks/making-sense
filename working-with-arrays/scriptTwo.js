@@ -99,8 +99,8 @@ console.log(userName);
 //make user name creation a functional component that transforms user objects to hold a user name property
 //take in an array (the accounts array) (and preforms username logic above to each name in the array)
 //create user name takes in an array of objects and for each object in the array adds a new 'username' property which is set to the first initials from the account  owner property
-const createUserName = function (accs) {
-  accs.forEach(function (acc) {
+const createUserName = function (acc) {
+  acc.forEach(function (acc) {
     acc.username = acc.owner
       .toLowerCase()
       .split(' ')
@@ -111,6 +111,15 @@ const createUserName = function (accs) {
 
 createUserName(accounts);
 console.log(accounts);
+
+// calc print balance is a function that takes in the array of all account movements and calls the reduce method on the array and calculates the total balance and then prints that number to the balance__value dom element
+const calcPrintBal = function (movements) {
+  //arrow notation
+  // take the accumulator and individual index items and put those into a situation where the accumulator is added to with the amount at each index item, start the acc at 0
+  const bal = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${bal}€`;
+};
+calcPrintBal(account1.movements);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -191,3 +200,16 @@ console.log(dep);
 const draw = movements.filter(mov => mov < 0);
 
 console.log(draw);
+
+const tot = movements.reduce(function (acc, cur) {
+  return acc + cur;
+}, 0);
+
+console.log(tot);
+
+//reduce can also get other items... accumulator holds the value & other items in the array can be manipulate or compared
+// reduce for max item in array:
+const max = movements.reduce((acc, mov) => (acc < mov ? mov : acc), 0);
+// if acc is less than mov return the movement & set as acc if not return the value held in acc
+
+console.log(max);
