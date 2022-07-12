@@ -151,6 +151,8 @@ the accumulator is where the values from the array will be added to
 
 the reduce method takes in a call back function (which iterates though the array adding the value of each item to the accumulator) as well as the start value for the accumulator
 
+because the entire array is accessible with reduce the arr.length can be used within the reduce method so, for example, item values can be divided by the array length and then added to the accumulator to come up with an average for array items.
+
 ### The Magic of Chaining Methods
 
 ### The find Method
