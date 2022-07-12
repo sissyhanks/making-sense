@@ -22,11 +22,16 @@ GOOD LUCK 😀
 const dogYears = [1, 2, 3, 4];
 
 const calcAverageHumanAge = function (dogAges) {
-  const humanAge = dogAges.map(function (dogAge) {
+  const humanAges = dogAges.map(function (dogAge) {
     return dogAge <= 2 ? dogAge * 2 : 16 + dogAge * 4;
   });
 
-  console.log(humanAge);
+  const adultDog = humanAges.filter(function (humanAge) {
+    return humanAge >= 18;
+  });
+
+  console.log(humanAges);
+  console.log(adultDog);
 };
 
 calcAverageHumanAge(dogYears);
