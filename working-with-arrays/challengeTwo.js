@@ -23,6 +23,8 @@ GOOD LUCK 😀
 // const dogYears = [5, 2, 4, 1, 15, 8, 3];
 const dogYears = [16, 6, 10, 5, 6, 1, 4];
 
+//calcAverageHumanAge is a function that takes in an array of dog ages, maps a new array of ages adjusted to human years, filters out ages that are under 18 human years and reduces remaining ages to a cumulative total and divides by two and ultimately returns the average age of all human year adult dog
+
 const calcAverageHumanAge = function (dogAges) {
   const humanAges = dogAges.map(dogAge =>
     dogAge <= 2 ? dogAge * 2 : 16 + dogAge * 4
