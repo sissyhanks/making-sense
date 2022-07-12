@@ -19,21 +19,19 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 GOOD LUCK 😀
 */
 
-const dogYears = [1, 2, 3, 4];
+// const dogYears = [1, 2, 3, 4];
+// const dogYears = [5, 2, 4, 1, 15, 8, 3];
+const dogYears = [16, 6, 10, 5, 6, 1, 4];
 
 const calcAverageHumanAge = function (dogAges) {
-  const humanAges = dogAges.map(function (dogAge) {
-    return dogAge <= 2 ? dogAge * 2 : 16 + dogAge * 4;
-  });
+  const humanAges = dogAges.map(dogAge =>
+    dogAge <= 2 ? dogAge * 2 : 16 + dogAge * 4
+  );
 
-  const adultDog = humanAges.filter(function (humanAge) {
-    return humanAge >= 18;
-  });
+  const adultDog = humanAges.filter(humanAge => humanAge >= 18);
 
   const averageAdultAge =
-    adultDog.reduce(function (acc, cur) {
-      return acc + cur;
-    }, 0) / adultDog.length;
+    adultDog.reduce((acc, cur) => acc + cur, 0) / adultDog.length;
 
   console.log(humanAges);
   console.log(adultDog);
